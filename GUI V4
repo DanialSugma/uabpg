@@ -1,0 +1,227 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/DanialSugma/Hub-Gui/main/Hub%20Gui"))()
+local Window = Library.CreateLib("PλNDA Blue", "Ocean")
+
+local Tab = Window:NewTab("Universal")
+local Section = Tab:NewSection("Movement Scripts")
+Section:NewButton("Fly", "A simple fly command, press 'E' to toggle.", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TR011F4C3/PANDA/main/scripts/fly.lua", true))()
+end)
+
+Section:NewButton("Noclip", "A simple noclip command, press 'V' to toggle.", function()
+noclip = false
+game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+plr = game.Players.LocalPlayer
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+
+if key == "v" then
+noclip = not noclip
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+end)
+
+
+Section:NewButton("ClickTP", "Click Teleportation.", function()
+    mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "ClickTP"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+Section:NewToggle("Infinite Jump", "A simple Infinite Jump script.", function(state)
+    if state then
+_G.infinjump = true
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+if _G.infinjump then
+if k:byte() == 32 then
+Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+Humanoid:ChangeState("Jumping")
+wait(0.1)
+Humanoid:ChangeState("Seated")
+end
+end
+end)
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+    else
+if _G.infinjump == true then
+_G.infinjump = false
+else
+_G.infinjump = true
+end
+end
+end)
+
+
+
+Section:NewSlider("Walk Speed", "A simple Walk Speed slider.", 500, 0, function(WalkScript) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WalkScript
+end)
+
+Section:NewSlider("Jump Power", "A simple Jump Power slider.", 500, 0, function(JumpScript) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = JumpScript
+end)
+
+Section:NewTextBox("Goto", "Go to a player.", function(PlayerTeleportName)
+local playerone = game.Players.LocalPlayer.Character
+local playertwo = game.Workspace:FindFirstChild(PlayerTeleportName)
+playerone.HumanoidRootPart.CFrame = playertwo.HumanoidRootPart.CFrame * CFrame.new(0,2,0)
+end)
+
+local Tab = Window:NewTab("Command Scripts")
+local Section = Tab:NewSection("Command Line Scripts")
+Section:NewButton("Roll Around As Ball", "Be Ball.", function()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/DanialSugma/Roll-around-as-ball/main/Roll%20around%20as%20ball",true))()
+end)
+Section:NewButton("Fe Gravity Controller", "Walk on Walls!!!", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DanialSugma/Gravity-Controller/main/Gravity%20Controller", true))()
+end)
+Section:NewButton("Universal Aimbot", "Aimbot anywhere you go!.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Universal-Aimbot/main/Unviversal%20Aimbot'),true))()
+end)
+Section:NewButton("Google Translate Script", "Speak and understand any language!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Google-Translate-Script/main/Google%20Translate%20Script'),true))()
+end)
+Section:NewButton("FE Invisible 1", "Needs layered clothing too work.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Fe-Invisible-1/main/Fe%20Invisible%201'),true))()
+end)
+Section:NewButton("Fe Invisible 2", "Good ole client sided invisible!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/FE-Invisible-2/main/FE%20Invisible%202'),true))()
+end)
+Section:NewButton("Become Big", "( Works Only On R15 :(    )", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Become-Big/main/Become%20Big'),true))()
+end)
+Section:NewButton("Become Small", "( Works Only On R15 :(    )", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Become-Small/main/Become%20Small'),true))()
+end)
+Section:NewButton("Bighead V3", "( Only works with lil nas x head and city life woman head. )", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/sysGhost-aka-BiKode/Scripts2022/main/BigHeadV3_Unpatched'),true))()
+end)
+Section:NewButton("Cool Gui", "Such a cool gui! ( has a bunch of stuff! )", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Cool-Gui/main/Cool%20Gui%20V2'),true))()
+end)
+Section:NewButton("Auto Pick up guns", "Anomic Script!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Auto/main/Auto'),true))()
+end)
+Section:NewButton("Mimic Gui", "Mimic Script!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/03koios/TheMimicVeryop/main/TheMimicSexyUi'),true))()
+end)
+Section:NewButton("Multi Gui", "Warning: VERY OP AND A LOT OF COMMANDS.!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/03koios/Freebobux/main/FreeBobux.lua'),true))()
+end)
+Section:NewButton("LuaHacks", "Electric State Gui!.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/LuaHacks/main/LuaHacks'),true))()
+end)
+Section:NewButton("Copy Games!", "Copy ANY roblox game! ( Only copies game not scripts..", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Copy-games-/main/Copy%20games!'),true))()
+end)
+Section:NewButton("Net Booster", "For Selexity Hub!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Net-Booster/main/Net%20booster'),true))()
+end)
+Section:NewButton("Selexity Hub", "Do net booster before using animations!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Random-Hub/main/Random%20Hub'),true))()
+end)
+Section:NewButton("FE Default Dance", "THAT'S THE FUNNY FORTNITE!!! XDDDDDDD!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Default-Dance/main/Default%20Dance'),true))()
+end)
+Section:NewButton("Energize V2", "Haha funny emotes!!!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Anim-V2/main/Anim%20V2'),true))()
+end)
+Section:NewButton("Eclipse Hub", "Idk, random hub I found.", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Another-Random-Hub/main/Another%20Random%20Hub'),true))()
+end)
+Section:NewButton("Chat Log", "See anyones chat, even if your not their!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Chat-Log/main/Chat%20log'),true))()
+end)
+Section:NewButton("FE Invisible Toggle", "Press E too toggle!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Invis-Toggle/main/Invis%20Toggle'),true))()
+end)
+Section:NewButton("Chat Bypass", "Say very naughty naughty words!", function()
+loadstring(game:HttpGet(('https://the-shed.xyz/roblox/scripts/ChatBypass'),true))()
+end)
+Section:NewButton("FE Goku", "FE Goku", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/FE-Goku/main/FE%20Goku'),true))()
+end)
+Section:NewButton("Nullware Hub", "Good too do any roblox funny dances!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Idk-V2/main/Idk%20V2'),true))()
+end)
+Section:NewButton("FE Gorrila Tag", "Become the grroila from gorrila tag", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Gorrila-Tag/main/Gorrila%20Tag'),true))()
+end)
+Section:NewButton("Become Amonger", "Become a real sussy one!!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Amonger/main/Amonger'),true))()
+end)
+Section:NewButton("Audio Logger", "Steals audios from games! ( Can steal bvpass audios! )", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/audio/main/Audio'),true))()
+end)
+Section:NewButton("Trust Boy Da Hood", "A da hood gui! ( Made By TrustBoy! )", function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/XXAWmifh'),true))()
+end)
+Section:NewButton("FE CHat Bot", "Just a good old chat bot!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Chat/main/Chat'),true))()
+end)
+Section:NewButton("Elite GUI", "Criminality GUI!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Elite/main/Elite'),true))()
+end)
+Section:NewButton("Unlock All Phantom Forces Weapons", "For Phantom Forces!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/Pfuaw/main/Pfuaw'),true))()
+end)
+Section:NewButton("Vestra Hub", "For Phantom Forces!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/buhartsev/main/buhartsev'),true))()
+end)
+Section:NewButton("Unlock All Big Paintball Guns!", "For Big Paintball!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/uabpg/main/uabpg'),true))()
+end)
+Section:NewButton("Empty Spot", "What scripts will lie here?", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingp/HomebrewAdmin/master/Main'),true))()
+end)
+
+
+
+
+local Tab = Window:NewTab("Animations")
+local Section = Tab:NewSection("Copy animations!")
+Section:NewButton("Default Dance", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim1/main/anim1'),true))()
+end)
+Section:NewButton("Kazotsky Kick", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim2/main/anim2'),true))()
+end)
+Section:NewButton("Kazotsky Kick 2.0", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim3/main/anim3'),true))()
+end)
+Section:NewButton("Running In Terror", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim4/main/anim4'),true))()
+end)
+Section:NewButton("Garrys Mod Dance", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim5/main/anim5'),true))()
+end)
+Section:NewButton("Orange Justice", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim6/main/anim6'),true))()
+end)
+Section:NewButton("Floss", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim7/main/anim7'),true))()
+end)
+Section:NewButton("Take The L", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim8/main/anim8'),true))()
+end)
+Section:NewButton("Peter Parker", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim9/main/anim9'),true))()
+end)
+Section:NewButton("BlowJob", "Copies animation id too Clipboard!", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/DanialSugma/anim10/main/anim10'),true))()
+end)
+
